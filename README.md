@@ -2,6 +2,8 @@
 支持 用户单聊，群聊。
 
 ### 使用文档
+web前端[jssdk](https://github.com/yunmoon/ehs-chat-client)  
+使用vue实现的一个简单聊天[demo](https://github.com/yunmoon/vue-chat-demo)
 #### 安装配置说明
 ```bash
 # 安装扩展包
