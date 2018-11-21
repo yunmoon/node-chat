@@ -1,0 +1,17 @@
+{
+    "extends": "standard",
+    "env":{
+        "node":true,
+        "es6":true
+    },
+    "globals": {
+        "redisClient": true,
+        "mongoose": true,
+        "_": true,
+        "async": true,
+        "moment": true
+    },
+    "rules": {
+        "prefer-promise-reject-errors":  ["error", {"allowEmptyReject": true}]
+    }
+}

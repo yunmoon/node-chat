@@ -1,0 +1,50 @@
+<html>
+
+
+<script src="./js/ehsChat.client.js"></script>
+<script>
+  function getQueryStringByName(name){
+
+    var result = location.search.match(new RegExp("[\?\&]" + name+ "=([^\&]+)","i"));
+
+    if(result == null || result.length < 1){
+
+      return "";
+
+    }
+
+    return result[1];
+
+  }
+    var token = getQueryStringByName('token');
+  var chatClient = new ehsChatClient('5bbc81c541804924eb2e6d57', token)
+  // console.log(ehsChatClient.socketMessageTypes)
+  chatClient.onConnected = function () {
+    chatClient.getMessageSessions().then(sessions => {
+      console.log(sessions)
+    })
+  }
+  chatClient.onMessage = function(message) {
+    console.log(message)
+  }
+  chatClient.onError = function (error) {
+    console.log(error)
+  }
+  chatClient.init()
+  // var socket = io('http://localhost:3000', {
+  //   query: {
+  //     token: token,
+  //     appId: '5bbc81c541804924eb2e6d57'
+  //   },
+  //   transports: ['websocket']
+  // });
+  // socket.on('connect', () => {
+  //   socket.emit('session-list', (err, data) => {
+  //     console.log(data)
+  //   })
+  // });
+  // socket.on('error', (error) => {
+  //   console.log(error)
+  // })
+</script>
+</html>
