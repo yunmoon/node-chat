@@ -1,4 +1,5 @@
 const crypto = require('crypto')
+const qs = require('qs')
 const RequestError = require('../exceptions/RequestError')
 function ApiUtils () {
   this.objectSort = (obj) => {
@@ -10,11 +11,7 @@ function ApiUtils () {
     return newObj
   }
   this.formatStr = (obj) => {
-    const strs = []
-    Object.keys(obj).forEach((val) => {
-      strs.push(`${val}=${encodeURIComponent(obj[val])}`)
-    })
-    return strs.join('&')
+    return qs.stringify(obj)
   }
   this.getReqSign = (str, appkey) => {
     str += `&app_key=${appkey}`
